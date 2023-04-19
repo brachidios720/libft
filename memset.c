@@ -6,10 +6,12 @@
 /*   By: rcarbonn <rcarbonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 15:40:29 by rcarbonn          #+#    #+#             */
-/*   Updated: 2023/04/14 16:01:39 by rcarbonn         ###   ########.fr       */
+/*   Updated: 2023/04/19 12:16:03 by rcarbonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
+#include "libft.h"
 void    *memset(void *s, int c, size_t n)
 {
     
