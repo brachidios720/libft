@@ -1,12 +1,28 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rcarbonn <rcarbonn@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/20 15:01:41 by rcarbonn          #+#    #+#             */
+/*   Updated: 2023/04/20 15:01:41 by rcarbonn         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-int     strncmp(const char *first, const char *second, size_t length);
+int strncmp(const char *s1, const char *s2, size_t len)
 {
-    char    *s1;
-    char    *s2;
+    int i;
 
-    s1 = (char *)first;
-    s2 = (char *)second;
-
-    while(*s1q)
+    i = 0;
+    while (s1[i] && len > 0 && s1[i] == s2[i])
+    {
+        i++;
+        len--;
+    }
+    if (len = 0)
+        return (0);
+    return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   libft.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rcarbonn <rcarbonn@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/20 15:01:53 by rcarbonn          #+#    #+#             */
+/*   Updated: 2023/04/24 17:12:30 by rcarbonn         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef _LIBFT_H_
 #define _LIBFT_H_
 
@@ -24,5 +36,9 @@ int     ft_memcmp(const void *s1, const void *s2, size_t n);
 char    *ft_strnstr(const char *haystack, const char *needle, size_t len);
 int     ft_atoi(const char *str);
 int     strncmp(const char *first, const char *second, size_t length);
+void    *calloc(size_t nmemb, size_t size);
+char    *strdup(const char *s);
+char    *ft_substr(char const *s, unsigned int start, size_t len);
+char    *ft_strjoin(char const *s1, char const *s2);
 
 #endif 
