@@ -6,37 +6,36 @@
 /*   By: rcarbonn <rcarbonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 16:28:11 by rcarbonn          #+#    #+#             */
-/*   Updated: 2023/04/24 16:30:50 by rcarbonn         ###   ########.fr       */
+/*   Updated: 2023/06/04 01:04:15 by rcarbonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char    *ft_strnstr(const char *s1, const char *s2, size_t len)
+char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 {
-    size_t  i;
-    size_t  j;
-    int     p;
+	int		i;
+	int		j;
+	char	*tmpi;
 
-    i = 0;
-    j = 0;
-    if(s2[i] != '\0')
-        return((char *)(s1))
-    while(s1[i] && i < len)
-    {
-        p = (char *)(s1 + i);
-        if(s1[i] == s2[0])
-        {
-            
-            while(s1[i + j] == s2[j] && len > i + y)
-            {
-                if(s2[y + 1] == '\0')
-                    return(p);
-                y++;
-            }
-            p = 0;   
-        }
-        i++;
-    }
-    return(NULL)
+	i = 0;
+	j = 0;
+	if (s2[j] == '\0')
+		return ((char *)s1);
+	while (s1[i] && i < n)
+	{
+		if (s1[i] == s2[0])
+		{
+			tmpi = (char *)(s1 + i);
+			while (s1[i + j] == s2[j] && i + j < n)
+			{
+				if (s2[j + 1] == '\0')
+					return (tmpi);
+				j++;
+			}
+			tmpi = 0;
+		}
+		i++;
+	}
+	return (NULL);
 }

@@ -1,19 +1,33 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rcarbonn <rcarbonn@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/04 00:57:01 by rcarbonn          #+#    #+#             */
+/*   Updated: 2023/06/04 01:03:31 by rcarbonn         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-int     ft_memcmp(const void *s1, const void *s2, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-    size_t  i;
-    char    *r1;
-    char    *r2;
+	int				i;
+	unsigned char	*s11;
+	unsigned char	*s12;
 
-    i = 0;
-    r1 = (char *)s1;
-    r2 = (char *)s2;
-    while(i < n)
-    {
-        if(r1[i] != r2[i])
-            return(r1[i] - r2[i]);
-        i++;
-    }
-    return(0);
+	i = 0;
+	s11 = (unsigned char *)s1;
+	s12 = (unsigned char *)s2;
+	while (n > i)
+	{
+		if (s11[i] != s12[i])
+			return (s11[i] - s12[i]);
+		i++;
+	}
+	if (n == i)
+		return (0);
+	return (s11[i] - s12[i]);
 }

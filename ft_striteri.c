@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rcarbonn <rcarbonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/14 15:10:44 by rcarbonn          #+#    #+#             */
-/*   Updated: 2023/06/04 01:07:03 by rcarbonn         ###   ########.fr       */
+/*   Created: 2023/06/04 00:57:53 by rcarbonn          #+#    #+#             */
+/*   Updated: 2023/06/04 01:03:58 by rcarbonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isprint(int c)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	return (c >= 32 && c <= 126);
+	size_t	i;
+
+	if (!s || !(*s) || !f)
+		return ;
+	i = 0;
+	while (s[i] != '\0')
+	{
+		f(i, &s[i]);
+		i++;
+	}
 }

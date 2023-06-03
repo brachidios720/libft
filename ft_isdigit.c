@@ -6,13 +6,13 @@
 /*   By: rcarbonn <rcarbonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 15:10:40 by rcarbonn          #+#    #+#             */
-/*   Updated: 2023/04/19 12:16:03 by rcarbonn         ###   ########.fr       */
+/*   Updated: 2023/06/04 01:05:48 by rcarbonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_isdigit(int c)
+int	ft_isdigit(int c)
 {
-    return(c >= '0' && c <= '9');
+	return (c >= '0' && c <= '9');
 }
