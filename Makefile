@@ -6,72 +6,80 @@
 #    By: rcarbonn <rcarbonn@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/07 14:06:14 by rcarbonn          #+#    #+#              #
-#    Updated: 2023/06/09 17:02:34 by rcarbonn         ###   ########.fr        #
+#    Updated: 2023/09/14 20:45:03 by rcarbonn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
 NAME = libft.a
-SRC = 				ft_isalnum.c \
-					ft_isprint.c \
-					ft_strncmp.c \
-					ft_isalpha.c \
-					ft_memcpy.c \
-					ft_strchr.c \
-					ft_strlcpy.c \
-					ft_tolower.c \
-					ft_isascii.c \
-					ft_memcpy.c \
-					ft_memmove.c \
-					ft_strdup.c \
-					ft_strlen.c \
-					ft_strrchr.c \
-					ft_toupper.c \
-					ft_isdigit.c \
-					ft_atoi.c \
-					ft_memcmp.c \
-					ft_strnstr.c \
-					ft_bzero.c \
-					ft_calloc.c \
-					ft_memset.c  \
-					ft_memchr.c \
-					ft_substr.c \
-					ft_strmapi.c \
-					ft_strjoin.c \
-					ft_putnbr_fd.c \
-					ft_putstr_fd.c \
-					ft_putchar_fd.c \
-					ft_putendl_fd.c \
-					ft_strtrim.c \
-					ft_split.c \
-					ft_strlcat.c \
-					ft_itoa.c \
-					ft_striteri.c \
+CC = gcc
+CFLAGS = -Wall -Werror -Wextra -I .
+AR = ar rcs
+RM = rm -f
 
-# -- Commande -- #
+SRCS = ft_memset.c \
+	ft_bzero.c \
+	ft_memcpy.c \
+	ft_memmove.c \
+	ft_memchr.c \
+	ft_memcmp.c \
+	ft_strlen.c \
+	ft_strlcpy.c \
+	ft_strlcat.c \
+	ft_strchr.c \
+	ft_strrchr.c \
+	ft_strnstr.c \
+	ft_strncmp.c \
+	ft_atoi.c \
+	ft_isalpha.c \
+	ft_isdigit.c \
+	ft_isalnum.c \
+	ft_isascii.c \
+	ft_isprint.c \
+	ft_toupper.c \
+	ft_tolower.c \
+	ft_strdup.c \
+	ft_calloc.c \
+	ft_substr.c \
+	ft_strjoin.c \
+	ft_strtrim.c \
+	ft_split.c \
+	ft_itoa.c \
+	ft_strmapi.c \
+	ft_striteri.c \
+	ft_putchar_fd.c \
+	ft_putstr_fd.c \
+	ft_putendl_fd.c \
+	ft_putnbr_fd.c
 
-CC    = gcc
-RM    = rm -f
+SRCS_BONUS = ft_lstnew.c \
+	ft_lstadd_front.c \
+	ft_lstsize.c \
+	ft_lstlast.c \
+	ft_lstadd_back.c \
+	ft_lstdelone.c \
+	ft_lstclear.c \
+	ft_lstiter.c \
+	ft_lstmap.c
 
-# -- SRC -- #
+OBJS = $(SRCS:.c=.o)
+OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 
-OBJ    = $(SRC:.c=.o)
+all: $(NAME)
 
+$(NAME): $(OBJS)
+	$(AR) $@ $^
 
-# -- Target -- #
-
-all:		$(NAME) 
-
-$(NAME): $(OBJ)
-		$(CC) -Wall -Werror -Wextra -c $(SRC)
-		ar -rc $(NAME) $(OBJ)
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
 clean:
-		$(RM) $(OBJ)
+	$(RM) $(OBJS) $(OBJS_BONUS)
 
-fclean:
-		$(RM) $(NAME) $(OBJ)
+fclean: clean
+	$(RM) $(NAME)
 
-re:		fclean all
+re: fclean all
 
-.PHONY: all clean fclean re
+bonus: $(OBJS) $(OBJS_BONUS)
+	$(AR) $(NAME) $^
 
+.PHONY: all clean fclean re bonus
